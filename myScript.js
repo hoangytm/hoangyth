@@ -1,3 +1,6 @@
+
+
+
 function createSnowFlake() {
   console.log("my script is running");
   // Creating the <i> tag
@@ -30,3 +33,24 @@ function createSnowFlake() {
 }
 
 setInterval(createSnowFlake, 100);
+
+
+
+// Xử lý sự kiện click
+document.getElementById("quoteButton").addEventListener("click", function (event) {
+  console.log('get quote button clicked');
+  event.preventDefault(); // Ngăn chặn hành vi mặc định (chuyển trang)
+
+  setQuote()
+});
+
+function setQuote(){
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  // Hiển thị câu nói
+  const quoteDisplay = document.getElementById("quoteDisplay");
+  quoteDisplay.textContent = randomQuote;
+  quoteDisplay.style.display = "block";
+}
+
+setInterval(setQuote, 60_000);
